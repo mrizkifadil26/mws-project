@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "cryptiles": "^4.1.2",
+    "debug": "^4.0.1",
     "grunt-responsive-images": "^0.1.6",
     "hoek": "^5.0.4",
     "lodash": "^4.17.11"
