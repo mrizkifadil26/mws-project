@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lokasi Istimewa dengan Mapbox</title>
+    <link rel="icon" href="../images/icons/icon-128x128.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
    crossorigin=""/>
@@ -14,43 +17,34 @@
   </head>
   <body>
     <style>
-      #mapid { height: 400px; }
+      /* #mapid { height: 400px; } */
     </style>
-    <h1>Lokasi Istimewa dengan Mapbox</h1>
-    <div id="mapid"></div>
-    <script>
-      var mymap = L.map('mapid').setView([-5.997020, 106.031725], 13);
-
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoibXJpemtpZmFkaWwyNiIsImEiOiJjamx4N2ZjZjYxZGNlM3BvZDN6bGFhd2NmIn0.XZsIU5kfy5xRKqh5sXixyw'
-      }).addTo(mymap);
-
-      function onMapClick(e) {
-        popup
-            .setLatLng(e.latlng)
-            .setContent("Clicked at " + e.latlng.toString())
-            .openOn(mymap);
-      }
-      mymap.on('click', onMapClick);
-
-      var marker = L.marker([-5.997020, 106.031725]).addTo(mymap);
-      var popup = L.popup();
-      var bindPopup = marker.bindPopup("Fakultas Teknik, UNTIRTA");
-      var polygon = L.polygon([
-        [-5.997681, 106.041155],
-        [-5.996274, 106.041648],
-        [-5.994736, 106.044041],
-        [-5.995803, 106.047506],
-        [-6.003828, 106.047571],
-        [-6.005663, 106.046004],
-        [-6.005535, 106.042314],
-        [-6.00227, 106.043],
-        [-5.99845, 106.042142],
-      ]).addTo(mymap).bindPopup("Green Area");
-
-    </script>
+    <div class="container">
+      <header>
+        <img class="logo" src="../images/icons/icon-128x128.png" alt="Logo">
+        <p class="heading">Lokasi Istimewa dengan Mapbox</p>
+      </header>
+      <main class="map">
+        <div id="mapid"></div>
+      </main>
+      <section class="images">
+        <img src="./images/cern.jpg" alt="Picture">
+      </section>
+      <section class="description">
+        <p> There are many otpadding-boxher benefits to the summer program at CERN, both personal and professional. Here are some of them: </p>
+        <ol>
+          <li>See first-hand how large-scale physics experiments work.</li>
+          <li>Get some useful programming experience with C++ and ROOT.</li>
+          <li>Meet bright people from all over the world.</li>
+          <li>Receive lectures from some of the top scientists in the world.</li>
+        </ol>
+        <p><a href="https://www.quora.com/What-are-some-benefits-or-perks-of-spending-the-summer-and-working-at-CERN"
+            target="_blank" rel="noreferrer">Barak Shoshany's Answer on Quora</a></p>
+      </section>
+      <footer>
+        <p>Muhammad Rizki Fadillah</p>
+      </footer>
+    </div>
+    <script src="./scripts/mapbox.js"></script>
   </body>
 </html>
